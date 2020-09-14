@@ -29,6 +29,8 @@ from keras.preprocessing import image
 from scipy.misc import imread, imsave
 from scipy.stats import entropy
 
+"""
+currently cant figure out tensorboard to work so this functinos are useless for now but can be useful in future
 def write_log(callback, name, loss, batch_no):
     """
     Write training summary to TensorBoard
@@ -48,7 +50,11 @@ def write_log2(callback, name, loss, batch_no):
     # other model code would go here
         tf.summary.scalar("my_metric", loss, step=batch_no)
         writer.flush()
+"""
 
+"""
+save_rgb_img -> This function saves images generated from the generator model to specified directory 
+"""
 def save_rgb_img(img, path):
     """
     Save a rgb image
@@ -58,15 +64,14 @@ def save_rgb_img(img, path):
     ax.imshow(img)
     ax.axis("off")
     ax.set_title("RGB Image")
-
     plt.savefig(path)
     plt.close()
 
 start_time = time.time()
-dataset_dir = "/Users/aashaysharma/Desktop/Generative-Adversarial-Networks-Projects-master/Chapter04/gallery-dl/danbooru/final_face/*.*"
+dataset_dir = "path/to/image/dataset/*.*"
 batch_size = 128
 z_shape = 100
-epochs = 5000
+epochs = 5000 #recommended 10,000 epochs for great images altough 5,000 epochs gives some decent outputs and is enough to see the model working.
 dis_learning_rate = 0.0005
 gen_learning_rate = 0.0005
 dis_momentum = 0.9
@@ -128,31 +133,31 @@ for epoch in range(epochs):
 
         dis_loss_real = dis_model.train_on_batch(image_batch, y_real)
         dis_loss_fake = dis_model.train_on_batch(generated_images, y_fake)
-
+        
+        #discriminator loss should decrease (While Training my average was around 0.3)
         d_loss = (dis_loss_real + dis_loss_fake)/2
         print("d_loss : ",d_loss)
 
         z_noise = np.random.normal(0, 1, size=(batch_size, z_shape))
         g_loss = adversarial_model.train_on_batch(z_noise, y_real)
+        #g_loss should increase (While Trainig my average was around 2.5)
         print("g_loss:", g_loss)
 
         dis_losses.append(d_loss)
         gen_losses.append(g_loss)
-
+        
+        #after every 100 epoch generate and save a image using model weights (generator model)
         if epoch % 100 == 0:
             z_noise = np.random.normal(0,1,size=(batch_size, z_shape))
             gen_images1 = gen_model.predict_on_batch(z_noise)
 
             for img in gen_images1[:2]:
-                save_rgb_img(img, "/Users/aashaysharma/Desktop/Generative-Adversarial-Networks-Projects-master/Chapter04/results/one_{}.png".format(epoch))
+                save_rgb_img(img, "path/to/directory/results/one_{}.png".format(epoch))
         print("Epoch:{}, dis_loss:{}".format(epoch, np.mean(dis_losses)))
         print("Epoch:{}, gen_loss: {}".format(epoch, np.mean(gen_losses)))
 
-        """
-        Save losses to Tensorboard after each epoch
-        """
-        write_log(tensorboard, 'discriminator_loss', np.mean(dis_losses), epoch)
-        write_log(tensorboard, 'generator_loss', np.mean(gen_losses), epoch)
+        #write_log(tensorboard, 'discriminator_loss', np.mean(dis_losses), epoch)
+        #write_log(tensorboard, 'generator_loss', np.mean(gen_losses), epoch)
 
 gen_model.save("generator_model.h5")
 dis_model.save("discriminator_model.h5")
