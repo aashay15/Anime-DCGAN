@@ -70,17 +70,17 @@ I recommend working with a virtual environment with python 3.6 or above
 If you have a device with lower specs, run the project on google colab, and set the path accordingly (Drive Paths)
 
 If all the steps are correct you will see the training process as show below :
-![Discriminator](discriminator.png)<!-- -->
+![Training](training_process.png)<!-- -->
 
 Here is a sample of the images generated during training : 
-![Discriminator](discriminator.png)<!-- -->
+![Sample Images](sample.png)<!-- -->
 
 #### Future Updates:
 Will upload trained model files and a script to use the trained model and train it further.
 Will upload DCGAN application and further use cases.
 Further if you want to still use the trained model the links for the same are given below :
-[Discriminator model file h5](https://drive.google.com/file/d/13IAa1PxYG7ih3ezM_0tdbkoRjtSlkx-X/view?usp=sharing)
-[Generator model file h5](https://drive.google.com/file/d/13FskSLFBLIOwyq6MUsbxuwPa6ZJbjba4/view?usp=sharing)
+[Discriminator model file h5](https://drive.google.com/file/d/13IAa1PxYG7ih3ezM_0tdbkoRjtSlkx-X/view?usp=sharing)<br />
+[Generator model file h5](https://drive.google.com/file/d/13FskSLFBLIOwyq6MUsbxuwPa6ZJbjba4/view?usp=sharing)<br />
 
 The ipynb file for people running the code on google colab is linked below :
 https://colab.research.google.com/drive/1yonjMkXrJ5hqFW0UjQjCx87N_U54V_D1?usp=sharing
