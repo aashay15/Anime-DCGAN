@@ -38,8 +38,8 @@ We are done with all the required steps to setup the dataset and make use of it 
 ### Model Structure & Training Process Explanation : 
 I will not cover all the basics of GANs (you can easily read theory online), but you can see the Discriminator & Generator Structures in the images below.
 Generator Network :
-![Discriminator](Diabetes_Prediction_files/figure-html/ss.png)<!-- -->
+![Discriminator](discriminator network.png)<!-- -->
 Discriminator Network :
-![Generator](Diabetes_Prediction_files/figure-html/ss.png)<!-- -->
+![Generator](generator network.png)<!-- -->
 
 
