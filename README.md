@@ -78,7 +78,7 @@ Here is a sample of the images generated during training :
 #### Future Updates:
 Will upload trained model files and a script to use the trained model and train it further.
 Will upload DCGAN application and further use cases.
-Further if you want to still use the trained model the links for the same are given below :
+Further if you want to still use the trained model the links for the same are given below : <br />
 [Discriminator model file h5](https://drive.google.com/file/d/13IAa1PxYG7ih3ezM_0tdbkoRjtSlkx-X/view?usp=sharing)<br />
 [Generator model file h5](https://drive.google.com/file/d/13FskSLFBLIOwyq6MUsbxuwPa6ZJbjba4/view?usp=sharing)<br />
 
