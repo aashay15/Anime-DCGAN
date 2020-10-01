@@ -83,6 +83,10 @@ Here is a sample of the images generated during training :
 ![Sample Images](sample.png)<!-- -->
 
 #### Future Updates:
+### v2.0.0 in making ~ major updates :
+### Optimized model (trained on 2000+ images (currently 500 images), activation changed and some minor optimizations)
+### UI in making to generate animefaces for data augmentaion
+
 The model has been trained for 10000 epochs, the model files will be soon pushed to github after further optimization with a user interface to generate outputs without any training needed from their side.
 Will upload trained model files and a script to use the trained model and train it further.
 Will upload DCGAN application and further use cases.
