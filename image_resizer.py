@@ -1,15 +1,16 @@
-import glob
-import os
+#!/usr/bin/python
 from PIL import Image
+import os, sys
 
-for index, filename in
-    enumerate(glob.glob('/path/to/directory/containing/images/*.*')):
-    try:
-    # Open image
-    im = Image.open(filename)
-    except Exception as e:
-        print("Exception:{}".format(e))
-        continue
+path = "/Users/aashaysharma/Desktop/AnimeGan/images/final/"
+dirs = os.listdir( path )
 
-    cropped_image = im.resize((64, 64), Image.ANTIALIAS)
-    cropped_image.save("/path/to/directory/to/store/cropped/images/filename.png"))
+def resize():
+    for item in dirs:
+        if os.path.isfile(path+item):
+            im = Image.open(path+item)
+            f, e = os.path.splitext(path+item)
+            imResize = im.resize((64,64), Image.ANTIALIAS)
+            imResize.save(f + ' resized.jpg', 'JPEG', quality=90)
+
+resize()
